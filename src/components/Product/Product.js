@@ -28,13 +28,13 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <ProductImage {...props} currentColor={currentColor} />
+      <ProductImage name={props.name} title={props.title} currentColor={currentColor} />
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
           <span className={styles.price}>Price: {getPrice()}$</span>
         </header>
-        <ProductForm {...props} onSubmit={handleAddToCart} currentColor={currentColor} currentSize={currentSize} setCurrentColor={setCurrentColor} setCurrentSize={setCurrentSize} />
+        <ProductForm colors={props.colors} sizes={props.sizes} onSubmit={handleAddToCart} currentColor={currentColor} currentSize={currentSize} setCurrentColor={setCurrentColor} setCurrentSize={setCurrentSize} />
       </div>
     </article>
   )
@@ -44,8 +44,7 @@ Product.propTypes = {
   name: PropTypes.string,
   title: PropTypes.string,
   basePrice: PropTypes.number,
-  colors: PropTypes.array,
-  sizes: PropTypes.array
+  props: PropTypes.array
 };
 
 export default Product;
